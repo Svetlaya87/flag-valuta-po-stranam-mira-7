@@ -35,78 +35,83 @@ let CountriesAndNBU=[];
     console.log(countriesSort);
     console.log(arr);
 
-    if (arr[1].length ==60){
-        for (let i=0; i<arr[1].length; i++){
-            NBU.push(
-                {
-                    codeCurrency:arr[1][i].cc,
-                    rate: arr[1][i].rate,
-                    txt:arr[1][i].txt,
-                }
-            );
-                
-        
-        }
-    }
+    
+    
 
+        if (arr.length == 2 && arr[0].length == 250 && arr[1].length == 60 ) {
+            for (let j=0;j<countriesSort.length; j++){
+                for (let i=0; i<arr[1].length; i++){
+                            
+                            if(arr[1][i].cc==countriesSort[j].codeCurrency){
+                                CountriesAndNBU.push(
+                                    {
+                                        codeCurrency: countriesSort[j].codeCurrency,
+                                        flag: countriesSort[j].flag,
+                                        countryName: countriesSort[j].countryName,
+                                        rate: arr[1][i].rate,
+                                        date: arr[1][i].exchangedate,
+                                        txt: arr[1][i].txt,
+        
+        
+        
+                                    }
+                                );
+                                
+        
+                            }
+                }
+        
+        
+        
+            } 
+        } 
+
+        console.log(CountriesAndNBU);
+
+        CountriesAndNBU = CountriesAndNBU.map( item => `
+        <tr class="border border-secondary">
+            <td>
+                <img src='${item.flag}'>
+            </td>
+        
+            <td>${item.countryName} </td>
+            <td>(${item.codeCurrency}</td>
+            <td>-</td>
+            <td>${item.txt})</td>
+            <td>Курс: ${item.rate}</td>
+            <td>на: ${item.date}</td>
+
+        </tr>
+        <tr>
+            <td class='p-3'></td>
+        </tr>`);
+
+        CountriesAndNBU = CountriesAndNBU.join('');
+
+        let TableBody = document.querySelector('tbody');
+        TableBody.innerHTML=CountriesAndNBU;
 
     console.log(arr[0][77].currencies[0].code);
     console.log(arr[0][77].currencies[0].name);
     console.log(arr[0][77].flag);
     console.log(arr[0][77].name);
     console.log(arr[1][12].cc);
+    console.log(CountriesAndNBU);
+
     
 
 
-return arr,countriesSort;
+  
 
 
 
 
-
-    //let contries=await fetch(URL1);
-    //contries=await contries.json();
 
 
 })();
 
 
     
-
-
-
-console.log(arr);
-/*
-if (arr.length == 2 && arr[0].length == 250 && arr[1].length == 60 ) {
-    for (let j=0;j<countriesSort.length; j++){
-        for (let i=0; arr[1].length; i++){
-                    
-                    if(arr[1][i].cc==countriesSort[j].codeCurrency){
-                        CountriesAndNBU.push(
-                            {
-                                codeCurrency: countriesSort[j].codeCurrency,
-                                flag: countriesSort[j].flag,
-                                countryName: countriesSort[j].countryName,
-                                rate: arr[1][i].rate,
-                                date: arr[1][i].exchangedate,
-                                txt: arr[1][i].txt,
-
-
-
-                            }
-                        );
-                        
-
-                    }
-        }
-
-
-
-    } 
-} 
-console.log(countriesSort);
-console.log(CountriesAndNBU); 
-*/
 
 
 

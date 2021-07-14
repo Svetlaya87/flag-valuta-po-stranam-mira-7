@@ -5,6 +5,7 @@
 .container {
     min-width: 540px;
     font-size: 30px;
+    padding: 40px;
 }
 
 .btn, .form-control {
@@ -21,10 +22,35 @@ p {font-size: calc(0.5rem + 1.5vw);
 }
 
 
-input:invalid {
-    border-color: rgba(255, 0, 200, 0.603);
-  }
+td {
+    padding: 20px 5px;
+    font-size: 0.9rem;
 
-  input:valid {
-    border-color: rgba(2, 197, 44, 0.76);
-  }  
+    white-space: nowrap; 
+    
+    
+
+}
+
+tr{
+    margin: 5px auto;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+}
+tr>td:first-child {
+    padding-left: 20px;
+    align-self: flex-start;
+}
+
+tr>td:last-child {
+    padding-right: 20px;
+}
+
+img {
+    width: 150px;
+    border: 1px solid gray;
+    margin: 0px auto;
+    text-align: center;
+}
